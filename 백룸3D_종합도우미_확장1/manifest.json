@@ -1,0 +1,52 @@
+{
+  "manifest_version": 3,
+  "name": "백룸 3D 종합 도우미",
+  "version": "2.9.0",
+  "description": "엔트리 작품 '백룸 3D' 전용: 완전한 3D(벽 뒤가 비쳐 보이지 않음), 마우스 고정, 마우스 휠(설정 스크롤·아이템 칸)을 한 번에.",
+  "permissions": [
+    "storage"
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "백룸 3D 종합 도우미",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://playentry.org/*",
+        "https://*.playentry.org/*"
+      ],
+      "js": [
+        "relay.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": true
+    },
+    {
+      "matches": [
+        "https://playentry.org/*",
+        "https://*.playentry.org/*"
+      ],
+      "js": [
+        "mouselock.js",
+        "three.min.js",
+        "tex.js",
+        "furn.js",
+        "f3.js",
+        "backrooms3d.js"
+      ],
+      "world": "MAIN",
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ]
+}
